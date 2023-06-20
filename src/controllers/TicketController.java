@@ -10,7 +10,7 @@ import models.VehicleType;
 import services.TicketService;
 
 public class TicketController {
-    private TicketService ticketService;
+    private final TicketService ticketService;
 
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
@@ -24,12 +24,12 @@ public class TicketController {
         Ticket ticket = new Ticket();
         GenerateTicketResponseDto response = new GenerateTicketResponseDto();
         try {
-            ticket=ticketService.generateTicket(gateId,vehicleType,vehicleNumber);
-        }catch (InvalidGateException ex){
+            ticket = ticketService.generateTicket(gateId, vehicleType, vehicleNumber);
+        } catch (InvalidGateException ex) {
             response.setResponseStatus(ResponseStatus.FAILURE);
             response.setMessage("InvalidGateException Occurs");
             return response;
-        }catch (NoAvailableSpotException ex){
+        } catch (NoAvailableSpotException ex) {
             response.setResponseStatus(ResponseStatus.SUCCESS);
             response.setMessage("NoAvailableSpotException Occurs");
             return response;
@@ -41,6 +41,6 @@ public class TicketController {
         response.setTicketId(ticket.getId());
         response.setSpotNumber(ticket.getParkingSpot().getSpotNumber());
 
-    return response;
+        return response;
     }
 }

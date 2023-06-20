@@ -1,4 +1,4 @@
 package exceptions;
 
-public class NoAvailableSpotException extends Exception{
+public class NoAvailableSpotException extends Exception {
 }

@@ -4,10 +4,11 @@ import java.util.Optional;
 import models.Vehicle;
 
 public class VehicleRepository {
-    public Optional<Vehicle> findVehicleByNumber(String number){
+    public Optional<Vehicle> findVehicleByNumber(String number) {
         return Optional.empty();
     }
-    public Vehicle save(Vehicle vehicle){
+
+    public Vehicle save(Vehicle vehicle) {
         return null;
     }
 }
